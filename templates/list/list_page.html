@@ -1,0 +1,53 @@
+{% extends "global/base.html" %}
+
+{% block content_area %}
+
+<h1>{{ tasklist.title }}</h1>
+
+<ul class="tasklist"> 
+    {% for listitem in tasks|dictsort:'added_on' %}
+        {% include "list/_task.html" %}
+    {% endfor %}
+</ul>
+
+<div class="add_task_inline">
+    <a href="/list/{{ tasklist.id }}/add_task" class="toggle action_link">++ new task</a>
+
+    <form action="" method="post" class="inline_hidden_form">
+        <label for="title" class="hidden_label">Task Description:</label>
+        {{ form.title }}
+    	{% csrf_token %}
+    	<input type="submit" value="add" class="fancy_submit" />
+    </form>
+
+</div>
+
+
+
+
+{% if completed_tasks %}
+
+<hr />
+
+<div class="completed_task_area">
+
+    <a class="action_link completed_toggle">view completed tasks</a>
+
+    <ul class="tasklist completed"> 
+        {% for listitem in completed_tasks|dictsortreversed:'completed_on' %}
+            {% include "list/_task.html" %}
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endif %}
+
+
+
+
+<hr />
+
+<a href="/list/{{ tasklist.id }}/delete" class="action_link">-- delete List</a>
+
+{% endblock %}

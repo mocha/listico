@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="http://localhost/~mocha/listico-media/css/base.css">
+	<link rel="stylesheet" href="http://localhost/~mocha/listico-media/css/style.css">
+
+	<script src="http://localhost/~mocha/listico-media/js/libs/jquery-1.6.2.min.js"></script>
+	<script src="http://localhost/~mocha/listico-media/js/libs/modernizr-2.0.6.min.js"></script>
+	<script src="http://localhost/~mocha/listico-media/js/hotkeys.js"></script>
+	
+	{% if request.user.is_authenticated %}
+	    <script src="http://localhost/~mocha/listico-media/js/logged_in.js"></script>
+	{% else %}
+	    <script src="http://localhost/~mocha/listico-media/js/logged_out.js"></script>
+	{% endif %}
+	
+</head>
+<body>
+
+<header>
+    <div id="header-inner">
+        <h1><a href="/">listico</a></h1>
+    </div>
+</header>
+
+
+<div id="container" class="clearfix">
+	<div id="main" role="main">
+        
+        <div id="left_sidebar">
+            {% if request.user.is_authenticated %}
+                
+                {% if request.user.tasklists.count > 1 %}
+                
+                    <ul class="metalist">
+                    
+                        <li><h2>other lists:</h2></li>
+            
+                        {% for sidebar_list in request.user.tasklists.all|dictsort:'title' %}
+                            {% ifnotequal sidebar_list tasklist %}
+                                <li><a href="/list/{{ sidebar_list.id }}">{{ sidebar_list.title }}</a></li>
+                            {% endifnotequal %}
+                        {% endfor %}
+            
+                    </ul>
+
+                    <hr />
+                
+                {% endif %}
+
+                <a href="/list/new" class="action_link">+ new list</a>
+
+                <hr />
+                
+                <a href="/accounts/logout" class="action_link">logout</a>
+                
+            {% else %}
+
+            <a href="/signup" class="action_link">signup</a>
+
+            <hr />
+            
+            <a href="/accounts/login" class="action_link">log in</a>
+            
+            {% endif %}
+        </div>
+        
+        <div id="content_area">
+            
+            {% if messages %}{% autoescape off %}
+			    <ul class="messages">
+			        {% for message in messages %}
+			        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|urlize }}</li>
+			        {% endfor %}
+			    </ul>
+			{% endautoescape %}{% endif %}
+			
+			
+            {% block content_area %}{% endblock %}
+        </div>
+                
+	</div>
+	<footer>
+
+	</footer>
+</div> <!--! end of #container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost/~mocha/listico-media/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+</body>
+</html>

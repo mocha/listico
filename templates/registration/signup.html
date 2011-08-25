@@ -1,0 +1,29 @@
+{% extends "global/base.html" %}
+
+{% block content_area %}
+
+<h1>Create your account</h1>
+
+<p>To get started, sign up below. We promise we'll never do anything with your e-mail address but log you in with it.
+
+<form action="" method="post" target="_parent">
+
+    <div class="bigfield">
+        {{ form.email.errors }}
+        <label for="id_email">Email:</label>
+        {{ form.email }}
+    </div>
+
+    <div class="bigfield">
+        {{ form.password1.errors }}
+        <label for="id_password1">Password:</label>
+        {{ form.password1 }}
+    </div>
+
+    {% csrf_token %}
+    <input type="submit" value="Submit" />
+
+
+</form>
+
+{% endblock %}

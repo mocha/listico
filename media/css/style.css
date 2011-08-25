@@ -1,0 +1,294 @@
+body {
+  font-family : Helvetica, "Helvetica Neue";
+  font-weight: 100;
+  letter-spacing : -1px;
+  background : #f5f5f5;
+  font-size : 14pt;
+}
+
+a { color : #4d8c91; text-decoration: none; }
+a:hover { color: #1f5a5e; text-decoration: underline; }
+
+#content_area hr {
+  display: block;
+  border: none;
+  border-bottom : 1px solid #ddd;
+  margin : 30px 0 30px -40px;
+}
+
+#container {
+  width : 960px;
+  margin : auto;
+  padding-bottom: 80px;
+}
+
+header {
+  background: #deebec;
+  width : 100%;
+  border-bottom : 1px solid #cce1e3;
+}
+
+#header-inner {
+  width : 960px;
+  margin: auto;
+}
+
+header h1,
+header h1 a {
+  padding : 0px;
+  margin : 0px;
+}
+
+header h1 a {
+  width : 311px;
+  height : 106px;
+  display: block;
+  text-indent: -9999px;
+  background : url(http://localhost/~mocha/listico-media/img/listico_logo.gif) no-repeat;
+}
+
+#left_sidebar {
+  float: left;
+  width : 280px;
+  text-align: right;
+  font-size : 1em;
+  line-height : 1em;
+  padding-top : 40px;
+}
+
+#left_sidebar #account_links {
+  border-top : 1px solid #ddd;
+  padding-top : 1em;
+  margin-top : 1em;
+}
+
+#left_sidebar li {
+  list-style: none;
+  padding-right : 40px;
+}
+
+#left_sidebar h2 {
+  font-weight: normal;
+  color : #999;
+}
+
+#left_sidebar a {
+  color : #ccc;
+  text-decoration: none;
+}
+
+#left_sidebar ul.metalist li {
+  margin-bottom : 20px;
+}
+
+#left_sidebar ul.metalist:hover li a {
+  color : #999;
+}
+
+#left_sidebar ul.metalist:hover li a:hover  {
+  text-decoration: underline;
+  color : #666;
+}
+
+
+
+
+#content_area {
+  float: right;
+  width : 639px;
+  text-align: left;
+  padding-left : 40px;
+  padding-top : 40px;
+  border-left : 1px solid #ddd;
+}
+
+#content_area h1 {
+  margin: 0px;
+  padding : 0px;
+  font-weight: 100;
+  font-size : 2.5em;
+  letter-spacing: -3px;
+}
+
+
+ul.tasklist {
+  padding-left : 0px;
+  font-size : 1.2em;
+  line-height : 1.22em;
+  color : #ccc;
+  list-style: none;
+  margin-left: -20px;
+}
+
+ul.tasklist li.task {
+  padding : 20px 20px 20px 40px;
+  margin-left : -20px;
+  background: url(http://localhost/~mocha/listico-media/img/listitem_arrow-2.gif) left center no-repeat;
+}
+
+
+ul.tasklist li.task.complete {
+  background: red;
+}
+
+ul.tasklist li.task:hover {
+  background : #efefef;
+}
+
+ul.tasklist li .task-content {
+  width : 495px;
+  display: block;
+  float: left;
+  color: #737373;
+/*  background : #f3cae7;*/
+}
+
+ul.tasklist li:hover .task-content {
+  color: #262626;
+}
+
+ul.tasklist ul.task-actions,
+ul.tasklist li.task li.action {
+  padding : 0px;
+  margin : 0px;
+  list-style: none;
+}
+
+ul.tasklist ul.task-actions {
+  float: right;
+  width : 120px;
+  margin-right : -20px;
+}
+
+ul.tasklist li.task li.action a {
+  padding : 0px;
+  display: block;
+  width : 40px;
+  height : 40px;
+  float: left;
+  text-indent: -9999px;
+  margin-right : 20px;
+  margin-bottom : 0px;
+}
+
+ul.tasklist li:hover .action a {
+  background-image: url(http://localhost/~mocha/listico-media/img/listitem_actions_sprite.gif);
+}
+
+ul.tasklist li.task:hover .action.delete-task a         { background-position : 0px 0px; }
+ul.tasklist li.task:hover .action.delete-task:hover a   { background-position : 0px -40px; }
+ul.tasklist li.task:hover .action.complete-task a       { background-position : -40px 0px; }
+ul.tasklist li.task:hover .action.complete-task:hover a { background-position : -40px -40px; }
+
+
+
+
+
+
+
+ul.messages,
+ul.messages li {
+  padding : 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+ul.messages li {
+  background : #ededed;
+  color: #b3b3b3;
+  padding: 15px 20px;
+  border: 2px solid #e5e5e5; 
+  margin-bottom : 40px;
+}
+
+ul.messages li.success {
+  background: #DEECDF;
+  color: #84B387;
+  border: 2px solid #D8E5D9;
+}
+
+
+
+
+
+
+.add_task_inline {
+}
+
+#content_area a.action_link {
+  color: #2E8187;
+}
+
+#left_sidebar a.action_link {
+  color: #a8b9ba;
+  margin-right : 40px;
+}
+
+#left_sidebar a.action_link:hover {
+  color: #2E8187;
+}
+
+.inline_hidden_form #id_title,
+.inline_hidden_form .fancy_submit,
+.bigfield input {
+  font-size: 1.2em;
+  line-height: 1.22em;
+  font-weight: 100;
+  padding: 10px;
+  color: #333;
+  background: white;
+  border: 2px solid #CCC;
+}
+
+.inline_hidden_form #id_title {
+  width : 400px;
+}
+
+.inline_hidden_form .fancy_submit {
+  background : #dee0ec;
+  border : 2px solid #c8cbe0;
+}
+
+
+label {
+  display: block;
+  color : #666;
+  margin-top : 1em;
+}
+
+label.hidden_label { display: none; }
+
+
+
+
+.completed_task_area {
+  background : #eee;
+  margin : -30px 0 -30px -40px;
+  padding : 30px 0 30px 40px;
+}
+
+.completed_task_area ul.tasklist li.task {
+  background : none;
+}
+
+.completed_task_area ul.tasklist li.task:hover {
+  background : #e3e3e3;
+}
+
+.taskmetainfo {
+  display: block;
+  font-size: .7em;
+  color: #BBB;
+}
+
+.taskmetainfo:hover {
+  color : #666;
+}
+
+
+
+.bigfield input {
+  display: block;
+  width : 16em;
+  margin-bottom : 1em;
+}

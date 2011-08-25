@@ -1,0 +1,16 @@
+<li class="task clearfix{% if task.complete %} complete{% endif %}">
+    <div class="task-content">
+        {{ listitem.title }}
+        {% if listitem.complete %}
+            <span class="taskmetainfo">Completed on {{ listitem.completed_on }}.</span>
+        {% endif %}
+    </div>
+    <ul class="task-actions">
+        {% if not listitem.complete %}
+            <li class="action complete-task"><a href="/complete_task/{{ listitem.id }}?next={{ request.get_full_path }}">complete this!</a></li>
+        {% else %}
+            <li class="action uncomplete-task"><a href="/uncomplete_task/{{ listitem.id }}?next={{ request.get_full_path }}">uncomplete this!</a></li>
+        {% endif %}
+        <li class="action delete-task"><a href="/delete_task/{{ listitem.id }}?next={{ request.get_full_path }}">delete this!</a></li>
+    </ul>
+</li>

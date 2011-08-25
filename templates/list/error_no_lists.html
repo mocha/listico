@@ -1,0 +1,32 @@
+{% extends "global/base.html" %}
+
+{% block content_area %}
+
+<h1>Hello there!</h1>
+
+<p>To get started, create a new list through the link in the sidebar. It's easy, all you need to do is name it.</p>
+
+<p>After you've done that, you can add items to your list.</p>
+
+<p>That pretty much wraps it up for our product tour.</p>
+
+<hr />
+
+<h2>Create your first list</h2>
+
+<form action="/list/new" method="post">
+
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	
+	
+	{% csrf_token %}
+	<input type="submit" value="Submit" />
+
+</form>
+
+{% endblock %}
+
+
+

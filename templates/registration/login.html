@@ -1,0 +1,31 @@
+{% block content %}
+
+{% if form.errors %}    
+<ul class="messages"><li class="error">Your email and password didn't match. Please try again.</li></ul>
+{% endif %}	
+
+<form method="post" action="." class="clearfix"  target="_parent">
+
+<ul>
+
+<li class="form-item bigfield">
+	<label for="id_username">Email Address:</label>
+    {{ form.email }}
+    {# <input id="id_username" type="text" name="username" maxlength="75"> #}
+</li>
+
+<li class="form-item bigfield">
+	<label for="id_password">Password:</label>
+	{{ form.password }}
+</li>
+
+</ul>
+
+<input type="hidden" name="next" value="/recommendations/" />
+<input type="submit" value="login" />
+
+{% csrf_token %}
+
+</form>
+
+{% endblock %}
